@@ -1,8 +1,11 @@
 package com.yunho.convention
 
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.getByType
 
 class ComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -12,6 +15,8 @@ class ComposeConventionPlugin : Plugin<Project> {
                 plugins.apply("kotlin-kapt")
                 plugins.apply("org.jetbrains.kotlin.android")
             }
+
+            configureAndroidCompose(extensions.getByType<ApplicationExtension>())
 
             dependencies {
                 add("implementation", libs.findLibrary("activity-compose").get())
@@ -34,6 +39,19 @@ class ComposeConventionPlugin : Plugin<Project> {
 
                 add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
                 add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())
+            }
+        }
+    }
+    private fun Project.configureAndroidCompose(
+        commonExtension: CommonExtension<*, *, *, *, *>,
+    ) {
+        commonExtension.apply {
+            buildFeatures {
+                compose = true
+            }
+
+            composeOptions {
+                kotlinCompilerExtensionVersion = libs.findVersion("composeUi").get().toString()
             }
         }
     }
