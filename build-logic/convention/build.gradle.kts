@@ -21,6 +21,10 @@ gradlePlugin {
             id = "hilt"
             implementationClass = "com.yunho.convention.HiltConventionPlugin"
         }
+        register("base") {
+            id = "base"
+            implementationClass = "com.yunho.convention.BaseAndroidPlugin"
+        }
     }
 }
 
