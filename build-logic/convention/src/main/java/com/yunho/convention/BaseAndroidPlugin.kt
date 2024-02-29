@@ -9,6 +9,7 @@ class BaseAndroidPlugin : Plugin<Project> {
         with(target){
             pluginManager.apply {
                 plugins.apply("kotlin-android")
+                plugins.apply("kotlin-kapt")
                 plugins.apply("org.jetbrains.kotlin.android")
             }
             dependencies {
