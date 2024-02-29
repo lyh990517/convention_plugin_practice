@@ -1,7 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("feature.compose")
+    id("dagger.hilt.android.plugin")
+    id("hilt")
 }
 
 android {

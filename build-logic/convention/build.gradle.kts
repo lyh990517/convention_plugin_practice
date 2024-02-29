@@ -14,8 +14,12 @@ java {
 gradlePlugin {
     plugins {
         register("compose") {
-            id = "feature.compose"
+            id = "compose"
             implementationClass = "com.yunho.convention.ComposeConventionPlugin"
+        }
+        register("hilt") {
+            id = "hilt"
+            implementationClass = "com.yunho.convention.HiltConventionPlugin"
         }
     }
 }
