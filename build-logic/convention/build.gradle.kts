@@ -11,3 +11,12 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+gradlePlugin {
+    plugins {
+        register("compose") {
+            id = "feature.compose"
+            implementationClass = "ComposeConventionPlugin"
+        }
+    }
+}
+
