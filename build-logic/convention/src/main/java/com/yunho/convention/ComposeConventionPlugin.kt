@@ -12,27 +12,28 @@ class ComposeConventionPlugin : Plugin<Project> {
                 plugins.apply("kotlin-kapt")
                 plugins.apply("org.jetbrains.kotlin.android")
             }
+
             dependencies {
-                add("implementation", "androidx.activity:activity-compose:1.8.2")
-                add("implementation", platform("androidx.compose:compose-bom:2023.03.00"))
-                add("implementation", "androidx.compose.ui:ui")
-                add("implementation", "androidx.compose.ui:ui-graphics")
-                add("implementation", "androidx.compose.ui:ui-tooling-preview")
-                add("implementation", "androidx.compose.material3:material3:1.2.0-beta01")
-                add("implementation", "androidx.hilt:hilt-navigation-compose:1.1.0")
+                add("implementation", libs.findLibrary("activity-compose").get())
+                add("implementation", libs.findLibrary("compose-bom").get())
+                add("implementation", libs.findLibrary("compose-ui").get())
+                add("implementation", libs.findLibrary("compose-ui-graphics").get())
+                add("implementation", libs.findLibrary("compose-ui-tooling-preview").get())
+                add("implementation", libs.findLibrary("material3").get())
+                add("implementation", libs.findLibrary("hilt-navigation-compose").get())
+                add("implementation", libs.findLibrary("kotlin-bom").get())
+                add("implementation", libs.findLibrary("core-ktx").get())
+                add("implementation", libs.findLibrary("lifecycle-runtime-ktx").get())
+                add("implementation", libs.findLibrary("lifecycle-viewmodel-ktx").get())
 
-                add("implementation", platform("org.jetbrains.kotlin:kotlin-bom:1.9.0"))
-                add("implementation", "androidx.core:core-ktx:1.9.0")
+                add("testImplementation", libs.findLibrary("junit").get())
 
-                add("implementation", "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-                add("implementation", "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+                add("androidTestImplementation", libs.findLibrary("androidx-junit").get())
+                add("androidTestImplementation", libs.findLibrary("espresso-core").get())
+                add("androidTestImplementation", libs.findLibrary("compose-ui-test-junit4").get())
 
-                add("testImplementation", "junit:junit:4.13.2")
-                add("androidTestImplementation", "androidx.test.ext:junit:1.1.5")
-                add("androidTestImplementation", "androidx.test.espresso:espresso-core:3.5.1")
-                add("androidTestImplementation", "androidx.compose.ui:ui-test-junit4:1.5.4")
-                add("debugImplementation", "androidx.compose.ui:ui-tooling:1.5.4")
-                add("debugImplementation", "androidx.compose.ui:ui-test-manifest:1.5.4")
+                add("debugImplementation", libs.findLibrary("compose-ui-tooling").get())
+                add("debugImplementation", libs.findLibrary("compose-ui-test-manifest").get())
             }
         }
     }

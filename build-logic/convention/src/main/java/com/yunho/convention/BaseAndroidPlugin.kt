@@ -12,18 +12,15 @@ class BaseAndroidPlugin : Plugin<Project> {
                 plugins.apply("org.jetbrains.kotlin.android")
             }
             dependencies {
-                add("implementation", platform("org.jetbrains.kotlin:kotlin-bom:1.9.0"))
-                add("implementation", "androidx.core:core-ktx:1.9.0")
+                add("implementation", libs.findLibrary("kotlin-bom").get())
+                add("implementation", libs.findLibrary("core-ktx").get())
+                add("implementation", libs.findLibrary("lifecycle-runtime-ktx").get())
+                add("implementation", libs.findLibrary("lifecycle-viewmodel-ktx").get())
 
-                add("implementation", "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-                add("implementation", "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+                add("testImplementation", libs.findLibrary("junit").get())
 
-                add("testImplementation", "junit:junit:4.13.2")
-                add("androidTestImplementation", "androidx.test.ext:junit:1.1.5")
-                add("androidTestImplementation", "androidx.test.espresso:espresso-core:3.5.1")
-                add("androidTestImplementation", "androidx.compose.ui:ui-test-junit4:1.5.4")
-                add("debugImplementation", "androidx.compose.ui:ui-tooling:1.5.4")
-                add("debugImplementation", "androidx.compose.ui:ui-test-manifest:1.5.4")
+                add("androidTestImplementation", libs.findLibrary("androidx-junit").get())
+                add("androidTestImplementation", libs.findLibrary("espresso-core").get())
             }
         }
     }

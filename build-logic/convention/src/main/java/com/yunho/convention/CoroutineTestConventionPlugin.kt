@@ -8,8 +8,8 @@ class CoroutineTestConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target){
             dependencies {
-                add("testImplementation", "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-                add("androidTestImplementation", "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+                add("testImplementation", libs.findLibrary("kotlinx-coroutines-test").get())
+                add("androidTestImplementation", libs.findLibrary("kotlinx-coroutines-test").get())
             }
         }
     }

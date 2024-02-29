@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("compose")
-    id("hilt")
+    id("testTool")
 }
 
 android {
