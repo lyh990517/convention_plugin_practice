@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "convention plugin"
 include(":app")
- 
+includeBuild("build-logic")
