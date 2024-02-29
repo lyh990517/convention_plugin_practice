@@ -25,6 +25,18 @@ gradlePlugin {
             id = "base"
             implementationClass = "com.yunho.convention.BaseAndroidPlugin"
         }
+        register("coroutineTest"){
+            id = "coroutineTest"
+            implementationClass = "com.yunho.convention.CoroutineTestConventionPlugin"
+        }
+        register("composeTest"){
+            id = "composeTest"
+            implementationClass = "com.yunho.convention.ComposeTestConventionPlugin"
+        }
+        register("testTool"){
+            id = "testTool"
+            implementationClass = "com.yunho.convention.TestConventionPlugin"
+        }
     }
 }
 
